@@ -36,3 +36,22 @@ function drawTen() {
     drawOnce();
   }
 }
+function render(results) {
+  const box = document.getElementById("result");
+  box.innerHTML = ""; // 清空之前的结果
+
+  results.forEach(r => {
+    const div = document.createElement("div");
+    div.className = `card ${r.star}`;
+    div.innerHTML = `
+      <span class="star">${r.star}</span>
+      <span class="name">${r.name}</span>
+    `;
+    box.appendChild(div);
+  });
+
+  const stat = document.createElement("div");
+  stat.className = "stat";
+  stat.innerText = `总招募：${totalDraw} 次 ｜ SSR：${ssrCount} 次`;
+  box.appendChild(stat);
+}
