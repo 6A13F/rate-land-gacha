@@ -55,3 +55,14 @@ function render(results) {
   stat.innerText = `总招募：${totalDraw} 次 ｜ SSR：${ssrCount} 次`;
   box.appendChild(stat);
 }
+let audio = new Audio("https://example.com/gacha-sound.mp3"); // 引入你的音效文件
+
+function playGachaSound() {
+  audio.play();
+}
+
+function drawOnce() {
+  playGachaSound();
+  const res = draw();
+  render([res]);
+}
